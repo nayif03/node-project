@@ -1,0 +1,10 @@
+const fs = require('fs')
+const text = fs.readFileSync('package.json','utf8')
+console.log(text)
+const package = JSON.parse(text)
+const {name, version, devDependencies} = package
+console.log("name : ",name)
+console.log("version : ",version)
+console.log("devDependencies : ",Object.keys(devDependencies).length)
+const node_modules = fs.statSync('./node_modules')
+console.log("size of node_modules folder :", node_modules.size)
